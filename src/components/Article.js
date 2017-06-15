@@ -1,13 +1,14 @@
 import React from 'react';
 import dateformat from 'dateformat';
 // import PropTypes from 'prop-types';
-import {Card, CardTitle, CardMedia, CardText} from 'react-toolbox/lib/card';
+import {Card, CardTitle, CardText} from 'react-toolbox/lib/card';
 import Chip from 'react-toolbox/lib/chip';
+import Img from 'react-image'
 
 const Article = (props) =>{
   const articlesList = props.articles.map((article) => {
     const publishDate = dateformat(article.publishedAt, "dddd, mmmm dS, yyyy, h:MM:ss TT");
-    const subtitle = `${article.author} on ${publishDate}`
+    const subtitle = `By ${article.author} on ${publishDate}`
     return(
       <li key={article.url} className="nav-item">
         <Card style={{width: '700px'}}>
@@ -15,10 +16,7 @@ const Article = (props) =>{
             title={article.title}
             subtitle={subtitle}
           />
-          <CardMedia
-            aspectRatio="wide"
-            image="https://placeimg.com/800/450/nature"
-          />
+          <Img height="30%" width="100%" src={article.urlToImage} />
           <CardText><i>{article.description}</i></CardText>
           <a href={article.url}>Read the story</a>
           <hr></hr>
