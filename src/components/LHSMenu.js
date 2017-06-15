@@ -11,9 +11,9 @@ const LHSMenu = (props) =>{
     )
   });
   return (
-    <ul className="nav flex-column">
-      {itemsList}
-    </ul>
+      <ul className="nav flex-column">
+        {itemsList}
+      </ul>
   )
 }
 
