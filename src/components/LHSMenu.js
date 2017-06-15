@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const LHSMenu = (props) =>{
-  console.log(props);
   const itemsList = props.sources.map((item) => {
+    const href = `/${item.id}`;
     return(
-      <li key={item.name.toString()} className="nav-item">
-        <a className="nav-link active" href="/source">{item.name}</a>
+      <li key={item.id} className="nav-item">
+        <a onClick={props.handleClick.bind(this, item)} className="nav-link active" href={href}>{item.name}</a>
       </li>
     )
   });
@@ -18,6 +18,7 @@ const LHSMenu = (props) =>{
 }
 
 LHSMenu.propTypes = {
-  sources: PropTypes.array
+  sources: PropTypes.array,
+  handleClick: PropTypes.func
 }
 export default LHSMenu;
