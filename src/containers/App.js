@@ -30,12 +30,14 @@ class App extends Component {
     return (
       <div className="App">
         <Header/>
-        <div className="container-fluid row">
-          <div className="col-md-2">
-            <LHSMenu sources={this.state.items} handleClick={this.handleClick}/>
-          </div>
-          <div className="col-md-9" data-spy="affix" data-offset-top="97">
-            <HandleArticle articles={this.state.articles} source={this.state.source}/>
+        <div className="container-fluid">
+          <div className="row">
+            <nav className="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
+              <LHSMenu sources={this.state.items} handleClick={this.handleClick}/>
+            </nav>
+            <main className="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+              <HandleArticle articles={this.state.articles} source={this.state.source}/>
+            </main>
           </div>
         </div>
       </div>
